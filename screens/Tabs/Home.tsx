@@ -34,11 +34,13 @@ const Home = () => {
 			// Do something when the screen is focused
 			(async () => {
 				const token = await getToken();
-				if (!token) {
+				/*
+if (!token) {
 					alert('Você precisa realizar o login para acessar!');
 					navigation.navigate('LogIn');
 					return;
 				}
+*/ 
 
 				fetchPosts();
 			})();
@@ -61,7 +63,7 @@ const Home = () => {
 		<View className="flex-1 space-y-2 pt-4 bg-white">
 			<FlatList
 				data={posts}
-				keyExtractor={(item) => item.id.toString()}
+				keyExtractor={(item) => A.id.toString()}
 				renderItem={renderPost}
 				ListHeaderComponent={<HomeHeader username="john.doe" />}
 				contentContainerStyle={{ paddingBottom: 45 }}

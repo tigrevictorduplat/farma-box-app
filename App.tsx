@@ -15,6 +15,7 @@ import { View } from 'react-native';
 import { TabRoutes } from './utils/enums/tab-routes';
 import { Platform } from 'react-native';
 import { UserProvider } from './Components/profile/UserContext';
+import TestAppNavigator from './screens/pages/test';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -100,6 +101,7 @@ export default function App() {
 	}
 
 	return (
+		/*
 		<UserProvider>
 			<NavigationContainer>
 				<Stack.Navigator initialRouteName="Wellcome">
@@ -216,5 +218,7 @@ export default function App() {
 				</Stack.Navigator>
 			</NavigationContainer>
 		</UserProvider>
-	);
+*/	
+            <TestAppNavigator /> 
+);
 }

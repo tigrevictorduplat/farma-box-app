@@ -83,14 +83,15 @@ const Upload = () => {
 		React.useCallback(() => {
 			(async () => {
 				const token = await getToken();
-				if (!token) {
+				/*
+if (!token) {
 					alert('Você precisa realizar o login para acessar!');
 					navigation.navigate('LogIn');
 					return;
-				} else {
+				} else*/   //{
 					const user = await getUserDetails();
 					setUserProfile(user as UserResponse);
-				}
+				//}
 				setLoading(false);
 			})();
 			return () => {

@@ -38,11 +38,13 @@ const PostDetails = () => {
 			// Do something when the screen is focused
 			(async () => {
 				const token = await getToken();
-				if (!token) {
+				/*
+if (!token) {
 					alert('Você precisa realizar o login para acessar!');
 					navigation.navigate('LogIn');
 					return;
 				}
+*/ 
 				
 
 			})();

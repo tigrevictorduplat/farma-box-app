@@ -43,19 +43,21 @@ const Profile = () => {
 			// Do something when the screen is focused
 			(async () => {
 				const token = await getToken();
+				/*
 				if (!token) {
 					alert('Você precisa realizar o login para acessar!');
 					navigation.navigate('LogIn');
 					return;
 				} else {
-					const user = await getUserDetails();
+					
+				} */
+				const user = await getUserDetails();
 					setUserProfile(user);
 
 					if (user) {
 						console.log("Buscando postagens...");
 						await fetchUserPosts(user.email);
 					}
-				}
 				setLoading(false)
 
 			})();
