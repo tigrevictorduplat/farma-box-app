@@ -63,7 +63,7 @@ if (!token) {
 		<View className="flex-1 space-y-2 pt-4 bg-white">
 			<FlatList
 				data={posts}
-				keyExtractor={(item) => A.id.toString()}
+				keyExtractor={(item) => item.id.toString()}
 				renderItem={renderPost}
 				ListHeaderComponent={<HomeHeader username="john.doe" />}
 				contentContainerStyle={{ paddingBottom: 45 }}
