@@ -79,10 +79,10 @@ export default function LogIn() {
 			<ScrollView className="bg-[#F9F9F9]">
 				<View className=" justify-center items-center ">
 					<View className="relative flex justify-center items-center  w-full h-64 mb-6">
-						<Image
-							source={require('../../assets/images/login/ImagemDeFundo.png')}
-							className="absolute shadown top-0 left-0 w-full h-full bg-[#F9F9F9] object-cover"
-						/>
+						<div style={{ backgroundColor: '#F1CB00', 
+							borderBottomLeftRadius: 100, 
+							borderBottomRightRadius: 100,  }} 
+							className="absolute w-full h-full rounded-b-3xl"/>
 						<View className="justify-center items-center">
 							<Image
 								source={require('../../assets/images/login/LogoDoApp.png')}
@@ -247,11 +247,11 @@ export default function LogIn() {
 
 						{/*Button Enter */}
 						<TouchableOpacity
-							className={'w-full bg-[#fff700] shadow-lg py-4 mb-4 rounded-2xl'}
+							className={'w-full bg-[#FFd750] shadow-lg py-4 mb-4 rounded-2xl'}
 							onPress={handleSubmit(handleLoginFormSubmit)}
 							disabled={isSubmitting}
 						>
-							<Text className="text-center text-white text-lg">Entrar</Text>
+							<Text className="text-center text-black text-lg">Entrar</Text>
 						</TouchableOpacity>
 
 						{/*Link of Register */}

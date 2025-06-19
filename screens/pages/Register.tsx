@@ -36,10 +36,10 @@ export default function Register() {
 			<ScrollView className="bg-[#F9F9F9]">
 				<View className="flex-1 bg-[#F9F9F9]  ">
 					<View className="relative flex justify-center items-center  w-full h-64 mb-6">
-						<Image
-							source={require('../../assets/images/login/ImagemDeFundo.png')}
-							className="absolute shadown top-0 left-0 w-full h-full bg-[#F9F9F9] object-cover"
-						/>
+							<div style={{ backgroundColor: '#F1CB00', 
+							borderBottomLeftRadius: 100, 
+							borderBottomRightRadius: 100,  }} 
+							className="absolute w-full h-full rounded-b-3xl"/>
 						<View className="justify-center items-center">
 							<Image
 								source={require('../../assets/images/login/LogoDoApp.png')}
@@ -261,11 +261,11 @@ export default function Register() {
 							/>
 						</View>
 						<TouchableOpacity
-							className="w-4/5 bg-[#FFF700] shadow-lg py-4 mb-4 rounded-2xl"
+							className="w-4/5 bg-[#FFd750] shadow-lg py-4 mb-4 rounded-2xl"
 							onPress={handleSubmit(handleRegisterFormSubmit)}
 							disabled={isSubmitting}
 						>
-							<Text className="text-center text-white text-lg">Registrar</Text>
+							<Text className="text-center text-[#000000] text-lg">Registrar</Text>
 						</TouchableOpacity>
 					</View>
 
@@ -277,7 +277,7 @@ export default function Register() {
 							className="shadow text-[#767676]"
 							onPress={() => navigation.navigate('LogIn')}
 						>
-							<Text className="font-semibold text-sm text-[#FFA500] ml-1">
+							<Text className="font-semibold text-sm text-[#ffa520] ml-1">
 								Entrar
 							</Text>
 						</TouchableOpacity>

@@ -1,4 +1,5 @@
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React, { useEffect, useState } from 'react';
 import { Alert, Image, TouchableOpacity, View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
@@ -9,6 +10,7 @@ import { getToken } from '../../utils/session/manager';
 import { NavigationProp } from '../../utils/types/navigation';
 import { Post } from '../../utils/types/post';
 import Spinner from '../../Components/spinner';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Home = () => {
 	const [posts, setPosts] = useState<Post[]>([]);
@@ -28,19 +30,30 @@ const Home = () => {
 			setLoading(false);
 		}
 	};
+	
+	const logout = async () => {
+            // Remove apenas os dados de sessão, mantendo os dados do usuário
+        await AsyncStorage.removeItem('userToken');
+        await AsyncStorage.removeItem('@currentUserEmail');
+        await AsyncStorage.removeItem('@tokenExpiration');
+        await AsyncStorage.removeItem('@quizScore');
+        
+        console.log('Usuário deslogado');
+        navigation.navigate('LogIn');
+	}
 
 	useFocusEffect(
 		React.useCallback(() => {
 			// Do something when the screen is focused
 			(async () => {
 				const token = await getToken();
-				/*
-if (!token) {
+				
+					if (!token) {
 					alert('Você precisa realizar o login para acessar!');
 					navigation.navigate('LogIn');
 					return;
 				}
-*/ 
+
 
 				fetchPosts();
 			})();
@@ -60,16 +73,16 @@ if (!token) {
 	if (loading) return <Spinner />;
 
 	return (
-		<View className="flex-1 space-y-2 pt-4 bg-white">
-			<FlatList
-				data={posts}
-				keyExtractor={(item) => item.id.toString()}
-				renderItem={renderPost}
-				ListHeaderComponent={<HomeHeader username="john.doe" />}
-				contentContainerStyle={{ paddingBottom: 45 }}
-			/>
-		</View>
-	);
+    <SafeAreaView>
+      <View>
+        <TouchableOpacity onPress={() => navigation.navigate('Receitas')} />
+        <TouchableOpacity onPress={() => navigation.navigate('Settings')} />
+        <TouchableOpacity onPress={() => navigation.navigate('Quiz')} />
+        <TouchableOpacity onPress={() => navigation.navigate('Profile')} />
+        <TouchableOpacity onPress={logout} />
+      </View>
+    </SafeAreaView>
+  );
 };
 
 type HomeHeaderProps = {
@@ -84,9 +97,10 @@ const HomeHeader = ({ username }: HomeHeaderProps) => {
 			<View className="px-4 flex flex-row my-6 items-center gap-x-3 mb-5 ">
 				<View className=" h-full w-full">
 					<View>
-						<Image
-							source={require('../../assets/images/login/LogoAppHome.png')}
-						/>
+						<div style={{ backgroundColor: '#F1CB00', 
+						borderBottomLeftRadius: 100, 
+						borderBottomRightRadius: 100,  }} 
+						className="absolute w-full h-full rounded-b-3xl"/>
 					</View>
 				</View>
 			</View>

@@ -35,10 +35,10 @@ export default function ForgotPassword() {
                 <View className='bg-[#F9F9F9]  items-center'>
 
                     <View className='relative flex justify-center items-center  w-full h-64 mb-6'>
-                        <Image
-                            source={require('../../assets/images/login/ImagemDeFundo.png')}
-                            className="absolute shadown top-0 left-0 w-full h-full bg-[#F9F9F9] object-cover"
-                        />
+                            <div style={{ backgroundColor: '#F1CB00', 
+							borderBottomLeftRadius: 100, 
+							borderBottomRightRadius: 100,  }} 
+							className="absolute w-full h-full rounded-b-3xl"/>
                         <View className='justify-center items-center'>
                             <Image
                                 source={require('../../assets/images/login/LogoDoApp.png')}
@@ -103,11 +103,11 @@ export default function ForgotPassword() {
 
                     {/*Button Send*/}
                     <TouchableOpacity
-                        className='w-4/5 bg-[#fff700] shadow-lg py-4 mb-5 rounded-2xl'
+                        className='w-4/5 bg-[#FFd750] shadow-lg py-4 mb-5 rounded-2xl'
                         onPress={handleSubmit((data) => {
                             console.log(data);
                         })}>
-                        <Text className='text-center text-white text-lg'>Enviar</Text>
+                        <Text className='text-center text-black text-lg'>Enviar</Text>
                     </TouchableOpacity>
                 </View>
                 <View className='flex-row justify-center items-center mb-4'>
